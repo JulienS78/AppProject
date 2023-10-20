@@ -1,0 +1,4 @@
+*.log
+/Project/Project/obj/*.json
+/Project/Project/obj/*.cache
+
