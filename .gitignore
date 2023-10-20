@@ -1,2 +1,7 @@
 *.log
 /AppProject/Project/Project/obj/
+*.cache
+*.json
+Project/Project/obj/Debug/net6.0/Project.GeneratedMSBuildEditorConfig.editorconfig
+Project/Project/obj/project.assets.json
+Project/Project/obj/Debug/net6.0/Project.assets.cache
