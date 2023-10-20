@@ -1,0 +1,29 @@
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/bin/Debug/net6.0/Project
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/bin/Debug/net6.0/Project.deps.json
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/bin/Debug/net6.0/Project.runtimeconfig.json
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/bin/Debug/net6.0/Project.dll
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/bin/Debug/net6.0/Project.pdb
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.csproj.AssemblyReference.cache
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.GeneratedMSBuildEditorConfig.editorconfig
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.AssemblyInfoInputs.cache
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.AssemblyInfo.cs
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.csproj.CoreCompileInputs.cache
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.dll
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/refint/Project.dll
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.pdb
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/Project.genruntimeconfig.cache
+/Users/chloerolland/Desktop/2022_2023/Integration System_ application/Project/Project/obj/Debug/net6.0/ref/Project.dll
+I:\Téléchargement\projet_app_pizza\Project\Project\bin\Debug\net6.0\Project.exe
+I:\Téléchargement\projet_app_pizza\Project\Project\bin\Debug\net6.0\Project.deps.json
+I:\Téléchargement\projet_app_pizza\Project\Project\bin\Debug\net6.0\Project.runtimeconfig.json
+I:\Téléchargement\projet_app_pizza\Project\Project\bin\Debug\net6.0\Project.dll
+I:\Téléchargement\projet_app_pizza\Project\Project\bin\Debug\net6.0\Project.pdb
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.GeneratedMSBuildEditorConfig.editorconfig
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.AssemblyInfoInputs.cache
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.AssemblyInfo.cs
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.csproj.CoreCompileInputs.cache
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.dll
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\refint\Project.dll
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.pdb
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.genruntimeconfig.cache
+I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\ref\Project.dll
