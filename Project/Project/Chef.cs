@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Project;
 
-public class Kitchen : Personn
+public class Chef : Person
 {
-    public Kitchen(int id,string name, string lastName)
+    public Chef (int id,string name, string lastName)
     {
         this.id = id;
         this.name = name;

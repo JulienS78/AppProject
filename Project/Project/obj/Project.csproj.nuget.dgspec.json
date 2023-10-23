@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Téléchargement\\projet_app_pizza\\Project\\Project\\Project.csproj": {}
+    "C:\\Users\\juli1\\OneDrive - Efrei\\Documents\\GitHub\\AppProject\\Project\\Project\\Project.csproj": {}
   },
   "projects": {
-    "I:\\Téléchargement\\projet_app_pizza\\Project\\Project\\Project.csproj": {
+    "C:\\Users\\juli1\\OneDrive - Efrei\\Documents\\GitHub\\AppProject\\Project\\Project\\Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Téléchargement\\projet_app_pizza\\Project\\Project\\Project.csproj",
+        "projectUniqueName": "C:\\Users\\juli1\\OneDrive - Efrei\\Documents\\GitHub\\AppProject\\Project\\Project\\Project.csproj",
         "projectName": "Project",
-        "projectPath": "I:\\Téléchargement\\projet_app_pizza\\Project\\Project\\Project.csproj",
+        "projectPath": "C:\\Users\\juli1\\OneDrive - Efrei\\Documents\\GitHub\\AppProject\\Project\\Project\\Project.csproj",
         "packagesPath": "C:\\Users\\juli1\\.nuget\\packages\\",
-        "outputPath": "I:\\Téléchargement\\projet_app_pizza\\Project\\Project\\obj\\",
+        "outputPath": "C:\\Users\\juli1\\OneDrive - Efrei\\Documents\\GitHub\\AppProject\\Project\\Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project;
 
-public class Customer : Personn
+public class Customer : Person
 {
    public DateOnly firstOrder { get; set; }
    public string customerCity { get; set; }

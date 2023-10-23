@@ -1,6 +1,6 @@
 namespace Project;
 
-public class Assistant : Personn
+public class Assistant : Person
 {
     public int moneyEarned { get; set; }
     public int nbOrderManaged { get; set; }
@@ -51,7 +51,7 @@ public class Assistant : Personn
         }
     }
 
-    public async Task<string> preparationOrderToKitchen(Order myOrder)
+    public async Task<string> preparationOrderToChef(Order myOrder)
     {
         int ms = 2000;
         if (myOrder.inPreparation)
@@ -63,8 +63,8 @@ public class Assistant : Personn
             Console.WriteLine("Message sending");
             await Task.Delay(ms);
             
-            //message for the kitchen
-            Console.WriteLine("\nMessage from assistant to kitchen :\nOrder n°" + myOrder.orderID +
+            //message for the Chef
+            Console.WriteLine("\nMessage from assistant to Chef :\nOrder n°" + myOrder.orderID +
                               "\n\nItem present in the list :");
             for (int i = 0; i < myOrder.PizzaOList.Count; i++)
             {
@@ -156,46 +156,46 @@ public class Assistant : Personn
         return mySystem.systemCashRegister;
     }
     
-        public Boolean orderClose (Order myOrder)
-        {
-            myOrder.closeOrder = true;
-            return myOrder.closeOrder;
-        }
+    public Boolean orderClose (Order myOrder)
+    {
+        myOrder.closeOrder = true;
+        return myOrder.closeOrder;
+    }
 
-        public Boolean orderOpen(Order myOrder)
-        {
-            myOrder.inPreparation = true;
-            return myOrder.inPreparation;
-        }
+    public Boolean orderOpen(Order myOrder)
+    {
+        myOrder.inPreparation = true;
+        return myOrder.inPreparation;
+    }
 
-        public Boolean orderLost(Order myOrder)
-        {
-            myOrder.lostOrder = true;
-            return myOrder.lostOrder;
-        }
+    public Boolean orderLost(Order myOrder)
+    {
+        myOrder.lostOrder = true;
+        return myOrder.lostOrder;
+    }
 
-        public int orderCashed(Order myOrder, Assistant myAssistant)
-        {
-            myAssistant.moneyEarned += myOrder.orderInvoice;
-            Console.WriteLine("Assistant : " + myAssistant.name + "cashed " + myOrder.orderInvoice + " euros" );
-            Console.WriteLine("Assistant : " + myAssistant.name + " has cashed " + myAssistant.moneyEarned + " euros" );
-            return myAssistant.moneyEarned;
-        }
+    public int orderCashed(Order myOrder, Assistant myAssistant)
+    {
+        myAssistant.moneyEarned += myOrder.orderInvoice;
+        Console.WriteLine("Assistant : " + myAssistant.name + "cashed " + myOrder.orderInvoice + " euros" );
+        Console.WriteLine("Assistant : " + myAssistant.name + " has cashed " + myAssistant.moneyEarned + " euros" );
+        return myAssistant.moneyEarned;
+    }
 
-        public int orderLost(Order myOrder, Assistant myAssistant)
-        {
-            myAssistant.moneyEarned -= myOrder.orderInvoice;
-            Console.WriteLine("Assistant : " + myAssistant.name + "has lost " + myOrder.orderInvoice + " euros" );
-            Console.WriteLine("Assistant : " + myAssistant.name + "has lost in total " + myAssistant.moneyEarned + " euros" );
-            return myAssistant.moneyEarned;
-        }
+    public int orderLost(Order myOrder, Assistant myAssistant)
+    {
+        myAssistant.moneyEarned -= myOrder.orderInvoice;
+        Console.WriteLine("Assistant : " + myAssistant.name + "has lost " + myOrder.orderInvoice + " euros" );
+        Console.WriteLine("Assistant : " + myAssistant.name + "has lost in total " + myAssistant.moneyEarned + " euros" );
+        return myAssistant.moneyEarned;
+    }
 
-        public int updatePizzeriaAccount(System mySystem, Assistant myAssistant)
-        {
-            mySystem.systemCashRegister += myAssistant.moneyEarned;
-            Console.WriteLine("box : " + mySystem.systemCashRegister);
-            return mySystem.systemCashRegister;
-        }  
+    public int updatePizzeriaAccount(System mySystem, Assistant myAssistant)
+    {
+        mySystem.systemCashRegister += myAssistant.moneyEarned;
+        Console.WriteLine("box : " + mySystem.systemCashRegister);
+        return mySystem.systemCashRegister;
+    }  
         
     
 }

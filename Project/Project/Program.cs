@@ -54,17 +54,17 @@ namespace Project
                 assistant2
             };
 
-            // initialize Kitchen
-            Kitchen kitchen1 = new Kitchen(id, "Pierrick", "Marsault");
+            // initialize Chef
+            Chef Chef1 = new Chef(id, "Pierrick", "Marsault");
             id++;
-            Kitchen kitchen2 = new Kitchen(id, "Marc", "Rougagnou");
+            Chef Chef2 = new Chef(id, "Marc", "Rougagnou");
             id++;
 
-            //new list of kitchen
-            List<Kitchen> kitchenList = new List<Kitchen>
+            //new list of Chef
+            List<Chef> ChefList = new List<Chef>
             {
-                kitchen1,
-                kitchen2
+                Chef1,
+                Chef2
             };
 
             // initialize Customers
@@ -302,12 +302,12 @@ namespace Project
                         //Send message 
                         assistant1.orderInPreparationToCustomer(newOrder);
 
-                        assistant1.preparationOrderToKitchen(newOrder);
+                        assistant1.preparationOrderToChef(newOrder);
 
                         assistant1.preparationOrderDelivery(newOrder);
                         
-                        //Kitchen prepare order
-                        kitchen1.orderPreparation(newOrder);
+                        //Chef prepare order
+                        Chef1.orderPreparation(newOrder);
                         
                         // send in delivery
                         newOrder.inDelivery = actualDelivery.doDelivery(newOrder, actualDelivery);

@@ -27,3 +27,18 @@ I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\refint\Pro
 I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.pdb
 I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\Project.genruntimeconfig.cache
 I:\Téléchargement\projet_app_pizza\Project\Project\obj\Debug\net6.0\ref\Project.dll
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.AssemblyInfoInputs.cache
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.AssemblyInfo.cs
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.csproj.CoreCompileInputs.cache
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.sourcelink.json
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.dll
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\refint\Project.dll
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.pdb
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\bin\Debug\net6.0\Project.exe
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\bin\Debug\net6.0\Project.deps.json
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\bin\Debug\net6.0\Project.runtimeconfig.json
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\bin\Debug\net6.0\Project.dll
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\bin\Debug\net6.0\Project.pdb
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\Project.genruntimeconfig.cache
+C:\Users\juli1\OneDrive - Efrei\Documents\GitHub\AppProject\Project\Project\obj\Debug\net6.0\ref\Project.dll
