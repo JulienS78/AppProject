@@ -35,9 +35,9 @@ namespace Project
             };
 
             //Assistant
-            Assistant assistant1 = new Assistant(id, "Sacha", "Ketchum", 09873456, "6 Avenue du Bourg-Palette", 0, 0);
+            Assistant assistant1 = new Assistant(id, "Sacha", "Ketchum", 0717172727, "6 Avenue du Bourg-Palette", 42, 2);
             id++;
-            Assistant assistant2 = new Assistant(id, "Lara", "Croft", 0634231234, "Great North Rd., Hatfield AL9 5HX", 34, 4);
+            Assistant assistant2 = new Assistant(id, "Lara", "Croft", 0818182828, "Great North Rd., Hatfield AL9 5HX", 65, 3);
             id++;
 
             //List of Assitant
@@ -48,9 +48,9 @@ namespace Project
             };
 
             //DeliveryMan
-            Delivery deliveryMan1 = new Delivery(id, "Oh Lee", "Chit", 70, 3);
+            Delivery deliveryMan1 = new Delivery(id, "Oh Lee", "Chit", 65, 3);
             id++;
-            Delivery deliveryMan2 = new Delivery(id, "Lodi", "Bidon", 70, 5);
+            Delivery deliveryMan2 = new Delivery(id, "Lodi", "Bidon", 82, 5);
             id++;
 
             //List of deliveryMan  
@@ -134,11 +134,11 @@ namespace Project
             List<Drink> DrinkOList = new List<Drink>(10);
 
             //Random Orders
-            Order order1 = new Order(orderid, 25, new DateTime(2022, 10, 21, 19, 35, 05), "4 rue des Lilas",
+            Order order1 = new Order(orderid, 25, new DateTime(2023, 10, 28, 12, 31, 45), "4 Rue des Lilas",
                 "Sarcelles", PizzaOList, DrinkOList);
             order1.closeOrder = true;
             orderid++;
-            Order order2 = new Order(orderid, 32, new DateTime(2022, 10, 21, 19, 40, 55), "54bis avenue d'Eren Yeager",
+            Order order2 = new Order(orderid, 32, new DateTime(2023, 10, 29, 20, 12, 37), "54bis Avenue d'Eren Yeager",
                 "Maria",PizzaOList, DrinkOList);
             order2.closeOrder = true;
             orderid++;
