@@ -18,43 +18,42 @@ namespace Project
             int id = 1;
             int orderid=1;
             
-            
-            //initialize pizzeria
+            //Pizzeria
             System myPizzeria = new System(1, 7000);
 
-            // initialize Chef
+            //Chef
             Chef Chef1 = new Chef(id, "Philippe", "Etchebest");
             id++;
             Chef Chef2 = new Chef(id, "Alain", "Ducasse");
             id++;
 
-            //new list of Chef
+            //List of Chef
             List<Chef> ChefList = new List<Chef>
             {
                 Chef1,
                 Chef2
             };
 
-            // initialize Assistant
+            //Assistant
             Assistant assistant1 = new Assistant(id, "Sacha", "Ketchum", 09873456, "6 Avenue du Bourg-Palette", 0, 0);
             id++;
             Assistant assistant2 = new Assistant(id, "Lara", "Croft", 0634231234, "Great North Rd., Hatfield AL9 5HX", 34, 4);
             id++;
 
-            //new list of Assitant
+            //List of Assitant
             List<Assistant> assistantList = new List<Assistant>
             {
                 assistant1,
                 assistant2
             };
 
-            // initialize deliveryBoy
+            //DeliveryMan
             Delivery deliveryMan1 = new Delivery(id, "Oh Lee", "Chit", 70, 3);
             id++;
             Delivery deliveryMan2 = new Delivery(id, "Lodi", "Bidon", 70, 5);
             id++;
 
-            //new list of deliveryMan and the queue correspondent 
+            //List of deliveryMan  
             var deliveryManList = new List<Delivery>
             {
                 deliveryMan1,
@@ -65,9 +64,9 @@ namespace Project
             deliveryQueue.Enqueue(deliveryMan1);
             deliveryQueue.Enqueue(deliveryMan2);
 
-            // initialize Customers
+            //Customers
             Customer customer1 = new Customer(id, "Etienne", "Gaillard", 0618763236, "21 Rue de Goldenkin", "GenV",
-                new DateOnly(2023, 10, 29), 12, 321);
+                new DateOnly(2023, 10, 29), 12, 263);
             id++;
             Customer customer2 = new Customer(id, "Léo", "Amiot", 01234556, "53 Rue du joker", "Arkam City",
                 new DateOnly(2023, 09, 14), 10, 248);
@@ -76,7 +75,7 @@ namespace Project
                 new DateOnly(2023, 08, 21), 11, 305);
             id++;
 
-            //new list of customers
+            //List of customers
             List<Customer> customerList = new List<Customer>
             {
                 customer1,
@@ -91,10 +90,10 @@ namespace Project
             Pizza QuatrosFromagi_L = new Pizza(4, "L", "QuatrosFromagi", 30, 10);
             Pizza Regina_M = new Pizza(5, "M", "Regina", 25, 7);
             Pizza Regina_L = new Pizza(6, "L", "Regina", 30, 9);
-            Pizza Calzone_M = new Pizza(5, "M", "Calzone", 25, 9);
-            Pizza Calzone_L = new Pizza(6, "L", "Calzone", 30, 11);
-           
-            //new list of pizza
+            Pizza Calzone_M = new Pizza(7, "M", "Calzone", 25, 9);
+            Pizza Calzone_L = new Pizza(8, "L", "Calzone", 30, 11);
+            
+            //List of pizza
             List<Pizza> availablePizzaList = new List<Pizza>
             {
                 Margherita_M,
@@ -112,13 +111,13 @@ namespace Project
             Drink cocaZ_L = new Drink(2, "L", "Coca Zero", 0, 4);
             Drink cocaC_M = new Drink(3, "M", "Coca Cherry", 0, 3);
             Drink cocaC_L = new Drink(4, "L", "Coca Cherry", 0, 4);
-            Drink Oasis_M = new Drink(3, "M", "Oasis", 0, 3);
-            Drink Oasis_L = new Drink(4, "L", "Oasis", 0, 4);
-            Drink FuzeTea_M = new Drink(3, "M", "FuzeTea", 0, 3);
-            Drink FuzeTea_L = new Drink(4, "L", "FuzeTea", 0, 4);
+            Drink Oasis_M = new Drink(5, "M", "Oasis", 0, 3);
+            Drink Oasis_L = new Drink(6, "L", "Oasis", 0, 4);
+            Drink FuzeTea_M = new Drink(7, "M", "FuzeTea", 0, 3);
+            Drink FuzeTea_L = new Drink(8, "L", "FuzeTea", 0, 4);
             
             
-            //new list of drinks
+            //List of drinks
             List<Drink> availableDrinkList = new List<Drink>
             {
                 cocaZ_M,
@@ -134,7 +133,7 @@ namespace Project
             List<Pizza> PizzaOList = new List<Pizza>(10);
             List<Drink> DrinkOList = new List<Drink>(10);
 
-            //create 2 random orders
+            //Random Orders
             Order order1 = new Order(orderid, 25, new DateTime(2022, 10, 21, 19, 35, 05), "4 rue des Lilas",
                 "Sarcelles", PizzaOList, DrinkOList);
             order1.closeOrder = true;
@@ -422,7 +421,7 @@ namespace Project
                                     break;
                                 case 2 :
                                     Console.WriteLine(" The price of an order according to its number :   ");
-                                    Console.WriteLine("Number of order : ");
+                                    Console.WriteLine("Number of the order : ");
 
                                     do
                                     {
@@ -435,7 +434,7 @@ namespace Project
                                     {
                                         z++;
                                     }
-                                    Console.WriteLine("Price of order :"+ number + "->" + orderList[z].orderInvoice + "euros");
+                                    Console.WriteLine("Price of the order "+ number + " is " + orderList[z].orderInvoice + " euros");
                                     break;
                                 
                                 case 3:
@@ -470,10 +469,10 @@ namespace Project
                         do
                         {
                             Console.WriteLine("\nStatistics Module");
-                            Console.WriteLine(" 1. display the number of orders managed by clerk :   ");
-                            Console.WriteLine(" 2. display the number of deliveries per delivery man :   ");
-                            Console.WriteLine(" 3. display the average price of orders  :   ");
-                            Console.WriteLine(" 4. display the average of the customer accounts (Total Order Amounts) :   ");
+                            Console.WriteLine(" 1. display the number of orders managed by asssistant ");
+                            Console.WriteLine(" 2. display the number of deliveries per delivery man");
+                            Console.WriteLine(" 3. display the average price of orders");
+                            Console.WriteLine(" 4. display the average of the customer accounts (Total Order Amounts)");
                             Console.WriteLine(" 5. return to main menu ");
                             
                             do
@@ -489,25 +488,25 @@ namespace Project
                                     break;
                                 
                                 case 1:
-                                    Console.WriteLine("Number of order managed");
+                                    Console.WriteLine("\nNumber of order managed");
                                     for (int k = 0; k < assistantList.Count; k++)
                                     {
-                                        Console.WriteLine("Assistant n° :"+assistantList[k].id+assistantList[k].nbOrderManaged);
+                                        Console.WriteLine("Assistant n°"+(k+1) +" : "+assistantList[k].nbOrderManaged);
                                     }
                                     break;
                                 case 2:
-                                    Console.WriteLine("number of deliveries per deliveryBoy : ");
+                                    Console.WriteLine("\nNumber of deliveries per deliveryBoy : ");
                                     for (int i = 0; i < deliveryManList.Count; i++)
                                     {
-                                        Console.WriteLine("DeliveryBoy :"+deliveryManList[i].id + deliveryManList[i].deliveryNumber + "deliveries");
+                                        Console.WriteLine("DeliveryMan n°"+(i+1) +" : "+ deliveryManList[i].deliveryNumber + " deliveries");
                                     }
                                     break;
                                 case 3 :
-                                    Console.WriteLine("The average amount of  orders  :   ");
+                                    Console.WriteLine("\nThe average amount of orders :   ");
                                     myPizzeria.averageOrderAmount(orderList);
                                     break;
                                 case 4:
-                                    Console.WriteLine("The average customer accounts (Total Order Amounts) :   ");
+                                    Console.WriteLine("\nThe average customer accounts (Total Order Amounts) :   ");
                                     myPizzeria.averageTotalAmountCustomerOrder(customerList);
                                     break;
                                 case 5:

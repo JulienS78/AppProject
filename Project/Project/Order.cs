@@ -47,10 +47,10 @@ public class Order
 
     public void displayOrder()
     {
-        Console.WriteLine("Order n°" + incrementOrderID());
-        Console.WriteLine(" Order price: " + orderInvoice);
-        Console.WriteLine(" Order date and time" + orderDateTime);
-        Console.WriteLine(" Order address" + customerAddress + customerCity);
+        Console.WriteLine("Order n°" + incrementOrderID() +" :");
+        Console.WriteLine(" Order price : " + orderInvoice + " euros");
+        Console.WriteLine(" Order date and time : " + orderDateTime);
+        Console.WriteLine(" Order address : " + customerAddress +" "+ customerCity);
 
         for (int i = 0; i < PizzaOList.Count; i++)
         {

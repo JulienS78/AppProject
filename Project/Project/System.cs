@@ -62,10 +62,13 @@ public class System
     
     //Display Customer by criters 
 
-    public List<Customer> alphaOrderCustomers(List<Customer> myCustomerList)
+    public void alphaOrderCustomers(List<Customer> myCustomerList)
     {
-        List<Customer> sortedList = myCustomerList.OrderBy(Customer => Customer.name, StringComparer.OrdinalIgnoreCase).ToList();
-        return sortedList;
+        var list = myCustomerList.OrderBy(x => x.name).ToList();
+        for (int i = 0; i < list.Count; i++)
+        {
+            Console.WriteLine("Customer : " + list[i].name + " at " + list[i].customerCity);
+        }
     }
 
     public void cityCustomer(List<Customer> myCustomerList)
@@ -81,22 +84,20 @@ public class System
     {
         List<Customer> copyList = new List<Customer>(myCustomerList);
         List<Customer> copyList2 = new List<Customer>(myCustomerList);
+        
+        copyList2[0].totalAmount = copyList[0].totalAmount;
 
-        for (int i = 0; i < (copyList.Count)-1; i++)
+
+        for (int i = 0; i < copyList.Count; i++)
         {
-            int ascending = 0;
-            if (copyList[i + 1].totalAmount > copyList[i].totalAmount)
+            if (copyList[i].totalAmount > copyList2[0].totalAmount)
             {
-                copyList2[ascending] = copyList[i + 1];
-                ascending++;
+                copyList2[0] = copyList[i];
+                
                 
             }
         }
-
-        for (int i = 0; i < copyList2.Count; i++)
-        {
-            Console.WriteLine("Customer : " + copyList2[i].name + copyList2[i].totalAmount);
-        }
+        Console.WriteLine("Customer : " + copyList2[0].name +" payed for "+ copyList2[0].totalAmount +" euros");
     }
 
     public void averageOrderAmount(List<Order> orderList)
