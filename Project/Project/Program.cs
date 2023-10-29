@@ -20,12 +20,38 @@ namespace Project
             
             
             //initialize pizzeria
-            System myPizzeria = new System(1, 10000);
+            System myPizzeria = new System(1, 7000);
+
+            // initialize Chef
+            Chef Chef1 = new Chef(id, "Philippe", "Etchebest");
+            id++;
+            Chef Chef2 = new Chef(id, "Alain", "Ducasse");
+            id++;
+
+            //new list of Chef
+            List<Chef> ChefList = new List<Chef>
+            {
+                Chef1,
+                Chef2
+            };
+
+            // initialize Assistant
+            Assistant assistant1 = new Assistant(id, "Sacha", "Ketchum", 09873456, "6 Avenue du Bourg-Palette", 0, 0);
+            id++;
+            Assistant assistant2 = new Assistant(id, "Lara", "Croft", 0634231234, "Great North Rd., Hatfield AL9 5HX", 34, 4);
+            id++;
+
+            //new list of Assitant
+            List<Assistant> assistantList = new List<Assistant>
+            {
+                assistant1,
+                assistant2
+            };
 
             // initialize deliveryBoy
-            Delivery deliveryMan1 = new Delivery(id, "Frederique", "Meunier", 70, 3);
+            Delivery deliveryMan1 = new Delivery(id, "Oh Lee", "Chit", 70, 3);
             id++;
-            Delivery deliveryMan2 = new Delivery(id, "Clémentine", "Silengo", 70, 5);
+            Delivery deliveryMan2 = new Delivery(id, "Lodi", "Bidon", 70, 5);
             id++;
 
             //new list of deliveryMan and the queue correspondent 
@@ -39,45 +65,16 @@ namespace Project
             deliveryQueue.Enqueue(deliveryMan1);
             deliveryQueue.Enqueue(deliveryMan2);
 
-
-
-            // initialize Assistant
-            Assistant assistant1 = new Assistant(id, "Pierre", "Caillou", 09873456, "34 rue Albert Einstein", 0, 0);
-            id++;
-            Assistant assistant2 = new Assistant(id, "Camille", "Briand", 0634231234, "63 rue de Mont Mirail", 34, 4);
-            id++;
-
-            //new list of Assitant
-            List<Assistant> assistantList = new List<Assistant>
-            {
-                assistant1,
-                assistant2
-            };
-
-            // initialize Chef
-            Chef Chef1 = new Chef(id, "Pierrick", "Marsault");
-            id++;
-            Chef Chef2 = new Chef(id, "Marc", "Rougagnou");
-            id++;
-
-            //new list of Chef
-            List<Chef> ChefList = new List<Chef>
-            {
-                Chef1,
-                Chef2
-            };
-
             // initialize Customers
-            Customer customer1 = new Customer(id, "Zoé", "Niddam", 0618763236, "12 rue Marcel Pagnol", "Villejuif",
-                new DateOnly(2022, 10, 13), 12, 456);
+            Customer customer1 = new Customer(id, "Etienne", "Gaillard", 0618763236, "21 Rue de Goldenkin", "GenV",
+                new DateOnly(2023, 10, 29), 12, 321);
             id++;
-            Customer customer2 = new Customer(id, "Jean", "Huault", 01234556, "24 rue Alfred Musset", "Dijon",
-                new DateOnly(2021, 03, 22), 2, 16);
+            Customer customer2 = new Customer(id, "Léo", "Amiot", 01234556, "53 Rue du joker", "Arkam City",
+                new DateOnly(2023, 09, 14), 10, 248);
             id++;
-            Customer customer3 = new Customer(id, "Elise", "Prieur", 063456789, "40 rue Milamon", "Arras",
-                new DateOnly(2022, 07, 17), 7, 1);
+            Customer customer3 = new Customer(id, "Julien", "Starck", 063456789, "5 Rue de Woopy", "Listembourg",
+                new DateOnly(2023, 08, 21), 11, 305);
             id++;
-
 
             //new list of customers
             List<Customer> customerList = new List<Customer>
@@ -88,53 +85,62 @@ namespace Project
             };
             
             //Pizza
-            Pizza ClassiqueM = new Pizza(1, "M", "Classical", 25, 6);
-            Pizza ClassiqueL = new Pizza(2, "L", "Classical", 30, 8);
-            Pizza fromageM = new Pizza(3, "M", "fromage", 25, 6);
-            Pizza fromageL = new Pizza(4, "L", "fromage", 30, 8);
-            Pizza reginaM = new Pizza(5, "M", "regina", 25, 6);
-            Pizza reginaL = new Pizza(6, "L", "regina", 30, 8);
+            Pizza Margherita_M = new Pizza(1, "M", "Margherita", 25, 6);
+            Pizza Margherita_L = new Pizza(2, "L", "Margherita", 30, 8);
+            Pizza QuatrosFromagi_M = new Pizza(3, "M", "QuatrosFromagi", 25, 8);
+            Pizza QuatrosFromagi_L = new Pizza(4, "L", "QuatrosFromagi", 30, 10);
+            Pizza Regina_M = new Pizza(5, "M", "Regina", 25, 7);
+            Pizza Regina_L = new Pizza(6, "L", "Regina", 30, 9);
+            Pizza Calzone_M = new Pizza(5, "M", "Calzone", 25, 9);
+            Pizza Calzone_L = new Pizza(6, "L", "Calzone", 30, 11);
            
             //new list of pizza
             List<Pizza> availablePizzaList = new List<Pizza>
             {
-                ClassiqueM,
-                ClassiqueL,
-                fromageM,
-                fromageL,
-                reginaM,
-                reginaL
+                Margherita_M,
+                Margherita_L,
+                QuatrosFromagi_M,
+                QuatrosFromagi_L,
+                Regina_M,
+                Regina_L,
+                Calzone_M,
+                Calzone_L
             };
             
             //Drinks
-            Drink cocaM = new Drink(1, "M", "Coca", 0, 3);
-            Drink cocaL = new Drink(2, "L", "Coca", 0, 4);
-            Drink iceTeaM = new Drink(3, "M", "iceTea", 0, 3);
-            Drink iceTeaL = new Drink(4, "L", "iceTea", 0, 4);
-            Drink vinM = new Drink(5, "M", "vin", 0, 6);
-            Drink vinL = new Drink(6, "L", "vin", 0, 8);
+            Drink cocaZ_M = new Drink(1, "M", "Coca Zero", 0, 3);
+            Drink cocaZ_L = new Drink(2, "L", "Coca Zero", 0, 4);
+            Drink cocaC_M = new Drink(3, "M", "Coca Cherry", 0, 3);
+            Drink cocaC_L = new Drink(4, "L", "Coca Cherry", 0, 4);
+            Drink Oasis_M = new Drink(3, "M", "Oasis", 0, 3);
+            Drink Oasis_L = new Drink(4, "L", "Oasis", 0, 4);
+            Drink FuzeTea_M = new Drink(3, "M", "FuzeTea", 0, 3);
+            Drink FuzeTea_L = new Drink(4, "L", "FuzeTea", 0, 4);
+            
             
             //new list of drinks
             List<Drink> availableDrinkList = new List<Drink>
             {
-                cocaM,
-                cocaL,
-                iceTeaM,
-                iceTeaL,
-                vinM,
-                vinL
+                cocaZ_M,
+                cocaZ_L,
+                cocaC_M,
+                cocaC_L,
+                Oasis_M,
+                Oasis_L,
+                FuzeTea_M,
+                FuzeTea_L
             };
 
             List<Pizza> PizzaOList = new List<Pizza>(10);
             List<Drink> DrinkOList = new List<Drink>(10);
 
             //create 2 random orders
-            Order order1 = new Order(orderid, 25, new DateTime(2022, 10, 21, 19, 35, 05), "12 rue Marcel Pagnol",
-                "Villejuif", PizzaOList, DrinkOList);
+            Order order1 = new Order(orderid, 25, new DateTime(2022, 10, 21, 19, 35, 05), "4 rue des Lilas",
+                "Sarcelles", PizzaOList, DrinkOList);
             order1.closeOrder = true;
             orderid++;
-            Order order2 = new Order(orderid, 32, new DateTime(2022, 10, 21, 19, 40, 55), "21 rue Alfred Musset",
-                "Dijon",PizzaOList, DrinkOList);
+            Order order2 = new Order(orderid, 32, new DateTime(2022, 10, 21, 19, 40, 55), "54bis avenue d'Eren Yeager",
+                "Maria",PizzaOList, DrinkOList);
             order2.closeOrder = true;
             orderid++;
             
@@ -148,7 +154,7 @@ namespace Project
             //waiting list
             Queue<Order> orderQueue = new Queue<Order>();
             
-            Console.WriteLine("\nWelcome in our Pizzeria !");
+            Console.WriteLine("\nWelcome in our Pizzeria del Zinzini !");
 
             bool bigflag;
             do
@@ -203,7 +209,7 @@ namespace Project
                         int addCustomerInList = 0;
                         if (choice == "Yes" || choice == "yes")
                         {
-                            actualCustomer = new Customer(id, "Soazic", "Fournier", 045678986, "23 rue de Marcel",
+                            actualCustomer = new Customer(id, "Tony", "Stark", 0130003000, "10 rue de l'homme de fer",
                                 "Califonie", new DateOnly(2022, 10, 21), 0, 0);
                             id++;
                             
@@ -250,7 +256,7 @@ namespace Project
                         } while (nbDrink > 10 || nbDrink < 0);
                         
                         // create the new order
-                        Order newOrder = new Order(orderid, 0, DateTime.Now, "30 avenue du palace", "César", PizzaOList,
+                        Order newOrder = new Order(orderid, 0, DateTime.Now, "3 rue des Potiers", "Cissé", PizzaOList,
                             DrinkOList);
                         orderid++;
 
@@ -334,7 +340,7 @@ namespace Project
 
                         do
                         {
-                            Console.WriteLine("\nCustomer Module");
+                            Console.WriteLine("\nCustomer Module\n");
                             Console.WriteLine(" 1. display the list of customers by city   ");
                             Console.WriteLine(" 2. display the list of customers by Alpha order ");
                             Console.WriteLine(" 3. display the list of the best customers   ");
@@ -352,15 +358,15 @@ namespace Project
                                     Console.WriteLine("break by default");
                                     break;
                                 case 1:
-                                    Console.WriteLine("The list of customer by alpha order");
-                                    myPizzeria.alphaOrderCustomers(customerList);
-                                    break;
-                                case 2:
-                                    Console.WriteLine("The list of customer by city");
+                                    Console.WriteLine("The list of customer by city :\n");
                                     myPizzeria.cityCustomer(customerList);
                                     break;
+                                case 2:
+                                    Console.WriteLine("The list of customer by alpha order :\n");
+                                    myPizzeria.alphaOrderCustomers(customerList);
+                                    break;
                                 case 3:
-                                    Console.WriteLine("The list of best customer ");
+                                    Console.WriteLine("The list of best customer :\n");
                                     myPizzeria.bestCustomer(customerList);
                                     break;
                                 case 4:

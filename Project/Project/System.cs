@@ -64,8 +64,8 @@ public class System
 
     public List<Customer> alphaOrderCustomers(List<Customer> myCustomerList)
     {
-        myCustomerList.Sort();
-        return myCustomerList;
+        List<Customer> sortedList = myCustomerList.OrderBy(Customer => Customer.name, StringComparer.OrdinalIgnoreCase).ToList();
+        return sortedList;
     }
 
     public void cityCustomer(List<Customer> myCustomerList)
@@ -73,7 +73,7 @@ public class System
         var list = myCustomerList.OrderBy(x => x.customerCity).ToList();
         for (int i = 0; i < list.Count; i++)
         {
-            Console.WriteLine("Customer : " + list[i].name + list[i].customerCity);
+            Console.WriteLine("Customer : " + list[i].name + " at " + list[i].customerCity);
         }
     }
 
