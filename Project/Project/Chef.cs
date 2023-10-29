@@ -26,6 +26,5 @@ public class Chef : Person
             await Task.Delay(delayms * 200);
             Console.WriteLine("\nItem n°"+ (i+1)+" prepared");
         }
-        Console.WriteLine("\nOrder in preparation !");
     }
 }

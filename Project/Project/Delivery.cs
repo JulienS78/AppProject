@@ -53,7 +53,7 @@ public class Delivery : Person
             Console.WriteLine("\nDelivery in progress");
             await Task.Delay(ms);
             
-            Console.WriteLine("\nMessage Delivery is done for : \nOrder n°"+myOrder.orderID+ "\nAddress : " + myOrder.customerAddress + "\n\nList of items :");
+            Console.WriteLine("\nMessage Delivery for : \nOrder n°"+myOrder.orderID+ "\nAddress : " + myOrder.customerAddress + "\n\nList of items :");
             for (int i = 0; i < myOrder.PizzaOList.Count; i++)
             {
                 Console.WriteLine("Pizza n°"+(i+1)+ " is "+myOrder.PizzaOList[i].orderItemName);
