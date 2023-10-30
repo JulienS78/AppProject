@@ -262,33 +262,82 @@ namespace Project
                         for (int j = 0; j < nbPizza; j++)
                         {
                             myPizzeria.menuPizza(availablePizzaList);
-                            Console.WriteLine("\nPizza n°"+(j+1)+" :");
-                            choice = Console.ReadLine();
-                            Int32.TryParse(choice, out number);
+                            Console.WriteLine("\nPizza n°" + (j + 1) + " :");
+                            
+                            int pizzaChoice;
+                            bool isValidChoice = false;
+
+                            do
+                            {
+                                string input = Console.ReadLine();
+
+                                if (Int32.TryParse(input, out pizzaChoice))
+                                {
+                                    if (availablePizzaList.Any(pizza => pizza.orderIdItem == pizzaChoice))
+                                    {
+                                        isValidChoice = true;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Choix invalide. Veuillez entrer un numéro de pizza valide.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Entrée non valide. Veuillez entrer un numéro de pizza valide.");
+                                }
+                            } while (!isValidChoice);
+
                             for (int k = 0; k < availablePizzaList.Count; k++)
                             {
-                                if (availablePizzaList[k].orderIdItem == number)
+                                if (availablePizzaList[k].orderIdItem == pizzaChoice)
                                 {
-                                    newOrder.PizzaOList.Add(availablePizzaList[k]);
+                                    newOrder.DrinkOList.Add(availablePizzaList[k]);
                                 }
                             }
-                            
                         }
-
+                        
                         for (int j = 0; j < nbDrink; j++)
                         {
-                            myPizzeria.menuDrink(availableDrinkList);
-                            Console.WriteLine("\nDrink n°"+(j+1)+" :");
-                            choice = Console.ReadLine();
-                            Int32.TryParse(choice, out number);
-                            for (int i = 0; i < availableDrinkList.Count; i++)
+                            myPizzeria.menuPizza(availableDrinkList);
+                            Console.WriteLine("\nDrink n°" + (j + 1) + " :");
+                            
+                            int drinkChoice;
+                            bool isValidChoice = false;
+
+                            do
                             {
-                                if (availableDrinkList[i].orderIdItem == number)
+                                
+                                string input = Console.ReadLine();
+
+                                if (Int32.TryParse(input, out drinkChoice))
                                 {
-                                    newOrder.DrinkOList.Add(availableDrinkList[i]);
+                                    // Vérifiez si le choix de la pizza est valide (dans la liste).
+                                    if (availableDrinkList.Any(drink => pizza.orderIdItem == drinkChoice))
+                                    {
+                                        isValidChoice = true;
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Choix invalide. Veuillez entrer un numéro de pizza valide.");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Entrée non valide. Veuillez entrer un numéro de pizza valide.");
+                                }
+                            } while (!isValidChoice);
+
+                            // Maintenant, vous avez un choix de pizza valide, ajoutez-le à la commande.
+                            for (int k = 0; k < availableDrinkList.Count; k++)
+                            {
+                                if (availableDrinkList[k].orderIdItem == drinkChoice)
+                                {
+                                    newOrder.DrinkOList.Add(availableDrinkList[k]);
                                 }
                             }
                         }
+
 
                         newOrder.customerAddress = customerList[addCustomerInList].address;
                         
