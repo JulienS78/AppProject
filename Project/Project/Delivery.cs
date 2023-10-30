@@ -21,20 +21,21 @@ public class Delivery : Person
         this.deliveryNumber = deliveryNumber;
     }
 
-    public Boolean doDelivery(Order myOrder, Delivery myDelivery)
+    public async Task<bool> doDelivery(Order myOrder, Delivery myDelivery)
     {
-        Console.WriteLine("Order is ready, it will be delivery soon ");
+        int ms = 2000;
+        Console.WriteLine("\nOrder is ready, it will be delivered soon by "+myDelivery.name);
         myOrder.inDelivery = true;
-
+        await Task.Delay(ms);
         myDelivery.deliveryNumber += 1;
-        Console.WriteLine("Number of delivery done by the deliveryMan " +myDelivery.name +" : "+ myDelivery.deliveryNumber);
+        Console.WriteLine("\nNumber of delivery done by the deliveryMan " +myDelivery.name +" : "+ myDelivery.deliveryNumber);
         return myOrder.inDelivery;
     }
 
     public int getPayment(Order myOrder, Delivery myDelivery)
     {
         myDelivery.moneyOrder += myOrder.orderInvoice;
-        Console.WriteLine("Money Order Delivery by "+ myDelivery.name +" : "+ myDelivery.moneyOrder );
+        Console.WriteLine("\nMoney Order Delivered by "+ myDelivery.name +" : "+ myDelivery.moneyOrder );
         return myDelivery.moneyOrder;
 
     }
@@ -45,15 +46,15 @@ public class Delivery : Person
         int ms = 2000;
         if (myOrder.inDelivery)
         {
-            string message = "\nDelivery is done";
-            Console.WriteLine("\nSend delivery Address");
+            string message = "\nDelivery is done.";
+            Console.WriteLine("\nThe DeliveryMan is arrived to "+ myOrder.customerAddress);
             await Task.Delay(ms);
-            Console.WriteLine("\nMessage is sending");
+            Console.WriteLine("\nThe DeliveryMan sending a message to Assistant");
             await Task.Delay(ms);
-            Console.WriteLine("\nDelivery in progress");
+            Console.WriteLine("\nMessage sending...");
             await Task.Delay(ms);
             
-            Console.WriteLine("\nMessage Delivery for : \nOrder n°"+myOrder.orderID+ "\nAddress : " + myOrder.customerAddress + "\n\nList of items :");
+            Console.WriteLine("\nMessage Received from DeliveryMan for assistant : \nOrder n°"+myOrder.orderID+ "\nAddress : " + myOrder.customerAddress + "\n\nList of items :");
             for (int i = 0; i < myOrder.PizzaOList.Count; i++)
             {
                 Console.WriteLine("Pizza n°"+(i+1)+ " is "+myOrder.PizzaOList[i].orderItemName);
@@ -63,7 +64,8 @@ public class Delivery : Person
                 Console.WriteLine("Drink n°"+(i+1)+" is "+myOrder.DrinkOList[i].orderItemName);
             }
             Console.WriteLine(message);
-
+            myOrder.PizzaOList.Clear(); 
+            myOrder.DrinkOList.Clear();
             return message;
         }
 

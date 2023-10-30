@@ -16,15 +16,20 @@ public class Chef : Person
         this.lastName = lastName;
     }
 
-    public async void orderPreparation(Order myOrder)
+    public async Task orderPreparation(Order myOrder, Chef actualChef)
     {
         int delayms;
+        int ms = 2000;
+        
+        await Task.Delay(ms);
+        Console.WriteLine("\n"+actualChef.name+" "+actualChef.lastName+" will now prepare the order");
+        await Task.Delay(ms);
         for (int i = 0; i < myOrder.PizzaOList.Count; i++)
         {
-            Console.WriteLine("In preparation");
+            Console.WriteLine("\nPizza n°"+(i + 1)+" is in preparation");
             delayms = myOrder.PizzaOList[i].preparationTime;
             await Task.Delay(delayms * 200);
-            Console.WriteLine("\nItem n°"+ (i+1)+" prepared");
+            Console.WriteLine("\nPizza n°"+(i + 1)+" is done");
         }
     }
 }

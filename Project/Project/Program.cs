@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -13,7 +11,7 @@ namespace Project
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             int id = 1;
             int orderid=1;
@@ -34,6 +32,11 @@ namespace Project
                 Chef2
             };
 
+            CircularQueue<Chef> ChefQueue = new CircularQueue<Chef>();
+            ChefQueue.Enqueue(Chef1);
+            ChefQueue.Enqueue(Chef2);
+
+
             //Assistant
             Assistant assistant1 = new Assistant(id, "Sacha", "Ketchum", 0717172727, "6 Avenue du Bourg-Palette", 42, 2);
             id++;
@@ -46,6 +49,10 @@ namespace Project
                 assistant1,
                 assistant2
             };
+
+            CircularQueue<Assistant> AssistantQueue = new CircularQueue<Assistant>();
+            AssistantQueue.Enqueue(assistant1);
+            AssistantQueue.Enqueue(assistant2);
 
             //DeliveryMan
             Delivery deliveryMan1 = new Delivery(id, "Oh Lee", "Chit", 65, 3);
@@ -60,7 +67,7 @@ namespace Project
                 deliveryMan2
             };
 
-            Queue<Delivery> deliveryQueue = new Queue<Delivery>();
+            CircularQueue<Delivery> deliveryQueue = new CircularQueue<Delivery>();
             deliveryQueue.Enqueue(deliveryMan1);
             deliveryQueue.Enqueue(deliveryMan2);
 
@@ -220,7 +227,7 @@ namespace Project
 
                         if (choice == "No" || choice == "no")
                         {
-                            Console.WriteLine("What is your phone number :");
+                            Console.WriteLine("\nWhat is your phone number :");
                             choice = Console.ReadLine();
                             Int32.TryParse(choice, out number);
 
@@ -230,8 +237,8 @@ namespace Project
                                 // browse a list
                                 if (number == customerList[local].phoneNumber)
                                 {
-                                    Console.WriteLine("We found you !");
-                                    Console.WriteLine("Name : " + customerList[local].name);
+                                    Console.WriteLine("\nWe found you !");
+                                    Console.WriteLine("\nName : " + customerList[local].name);
                                     actualCustomer = customerList[local];
                                     addCustomerInList = local;
                                 }
@@ -240,13 +247,15 @@ namespace Project
                             }
                         }
                         //new order
+                        Console.WriteLine("\n---------------------------------------------");
                         Console.WriteLine("\nHow many Pizza ?");
                         do
                         {
                             choice = Console.ReadLine();
                             Int32.TryParse(choice, out nbPizza);
                         } while (nbPizza > 10 || nbPizza < 0);
-                        
+
+                        Console.WriteLine("\n---------------------------------------------");
                         Console.WriteLine("\nHow many Drinks ?");
                         do
                         {
@@ -259,8 +268,10 @@ namespace Project
                             DrinkOList);
                         orderid++;
 
+                        Console.WriteLine("\n---------------------------------------------");
                         for (int j = 0; j < nbPizza; j++)
                         {
+                            
                             myPizzeria.menuPizza(availablePizzaList);
                             Console.WriteLine("\nPizza n°" + (j + 1) + " :");
                             
@@ -292,14 +303,15 @@ namespace Project
                             {
                                 if (availablePizzaList[k].orderIdItem == pizzaChoice)
                                 {
-                                    newOrder.DrinkOList.Add(availablePizzaList[k]);
+                                    newOrder.PizzaOList.Add(availablePizzaList[k]);
                                 }
                             }
                         }
-                        
+                        Console.WriteLine("\n---------------------------------------------\n");
                         for (int j = 0; j < nbDrink; j++)
                         {
-                            myPizzeria.menuPizza(availableDrinkList);
+                            
+                            myPizzeria.menuDrink(availableDrinkList);
                             Console.WriteLine("\nDrink n°" + (j + 1) + " :");
                             
                             int drinkChoice;
@@ -312,8 +324,7 @@ namespace Project
 
                                 if (Int32.TryParse(input, out drinkChoice))
                                 {
-                                    // Vérifiez si le choix de la pizza est valide (dans la liste).
-                                    if (availableDrinkList.Any(drink => pizza.orderIdItem == drinkChoice))
+                                    if (availableDrinkList.Any(drink => drink.orderIdItem == drinkChoice))
                                     {
                                         isValidChoice = true;
                                     }
@@ -328,7 +339,6 @@ namespace Project
                                 }
                             } while (!isValidChoice);
 
-                            // Maintenant, vous avez un choix de pizza valide, ajoutez-le à la commande.
                             for (int k = 0; k < availableDrinkList.Count; k++)
                             {
                                 if (availableDrinkList[k].orderIdItem == drinkChoice)
@@ -337,48 +347,59 @@ namespace Project
                                 }
                             }
                         }
-
+                        Console.WriteLine("\n---------------------------------------------");
 
                         newOrder.customerAddress = customerList[addCustomerInList].address;
+                        
                         
                         Console.WriteLine("\nList of items ordered :");
                         myPizzeria.pizzaList(newOrder.PizzaOList);
                         myPizzeria.drinkList(newOrder.DrinkOList);
-                        
+                        Console.WriteLine("\n---------------------------------------------");
+
                         newOrder.setOrderPrice();
-                        
+                        Console.WriteLine("\n---------------------------------------------");
+
                         orderList.Add(newOrder);
 
                         newOrder.inPreparation = assistant1.orderOpen(newOrder);
 
                         Delivery actualDelivery = deliveryQueue.Dequeue();
-                        
+                        Chef actualChef = ChefQueue.Dequeue();
+                        Assistant actualAssistant = AssistantQueue.Dequeue();
+
                         //Send message 
-                        assistant1.orderInPreparationToCustomer(newOrder);
+                        await assistant1.orderInPreparationToCustomer(newOrder, actualAssistant);
+                        Console.WriteLine("\n---------------------------------------------");
 
-                        assistant1.preparationOrderToChef(newOrder);
+                        await assistant1.preparationOrderToChef(newOrder, actualAssistant);
+                        Console.WriteLine("\n---------------------------------------------");
 
-                        assistant1.preparationOrderDelivery(newOrder);
-                        
+                        await assistant1.preparationOrderDelivery(newOrder, actualDelivery, actualAssistant);
+                        Console.WriteLine("\n---------------------------------------------");
+
                         //Chef prepare order
-                        Chef1.orderPreparation(newOrder);
-                        
-                        // send in delivery
-                        newOrder.inDelivery = actualDelivery.doDelivery(newOrder, actualDelivery);
+                        await Chef1.orderPreparation(newOrder, actualChef);
+                        Console.WriteLine("\n---------------------------------------------");
 
-                        actualDelivery.deliveryIsDone(newOrder);
+                        // send in delivery
+                        newOrder.inDelivery = await actualDelivery.doDelivery(newOrder, actualDelivery);
+                        Console.WriteLine("\n---------------------------------------------");
+
+                        await actualDelivery.deliveryIsDone(newOrder);
+                        Console.WriteLine("\n---------------------------------------------");
 
                         actualDelivery.moneyOrder = actualDelivery.getPayment(newOrder, actualDelivery);
 
                         customerList[addCustomerInList].newTotalAmount(newOrder.orderInvoice);
 
-                        myPizzeria.systemCashRegister = assistant1.moneyCash(myPizzeria, newOrder);
+                        myPizzeria.systemCashRegister = actualAssistant.moneyCash(myPizzeria, newOrder);
 
-                        assistant1.nbOrderManaged = assistant1.incrementNumberOrder();
+                        actualAssistant.nbOrderManaged = actualAssistant.incrementNumberOrder();
 
-                        newOrder.closeOrder = assistant1.orderClose(newOrder);
+                        newOrder.closeOrder = actualAssistant.orderClose(newOrder);
                         
-                        deliveryQueue.Enqueue(actualDelivery);
+                        
                         
                         break;
                     

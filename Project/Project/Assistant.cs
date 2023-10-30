@@ -16,24 +16,26 @@ public class Assistant : Person
         this.nbOrderManaged = nbOrderManaged;
     }
     
-    //increment number order managed
+    
     public int incrementNumberOrder()
     {
         nbOrderManaged += 1;
-        Console.Write("Number of order take by the assistant is " + nbOrderManaged);
+        Console.Write("\nNumber of order take by the assistant is " + nbOrderManaged);
+        Console.WriteLine("\n---------------------------------------------");
         return nbOrderManaged;
     }
 
-    public async Task<string> orderInPreparationToCustomer(Order myOrder)
+    public async Task<string> orderInPreparationToCustomer(Order myOrder, Assistant actualAssistant)
     {
         int ms = 2000;
         if (myOrder.inPreparation)
         {
-            string message = "your order is in preparation";
+            string message = "\nMessage for client : your order is in preparation";
             //Async
-            Console.WriteLine("Opening of the order");
             await Task.Delay(ms);
-            Console.WriteLine("Message sending");
+            Console.WriteLine("\nOrder request send to the asssistants room");
+            await Task.Delay(ms);
+            Console.WriteLine("\nOpening of the order by assistant ("+actualAssistant.name+")");
             await Task.Delay(ms);
             
             //Assistant to customer message
@@ -51,31 +53,32 @@ public class Assistant : Person
         }
     }
 
-    public async Task<string> preparationOrderToChef(Order myOrder)
+    public async Task<string> preparationOrderToChef(Order myOrder, Assistant actualAssistant)
     {
         int ms = 2000;
         if (myOrder.inPreparation)
         {
-            string message = "\nDetails of the order";
+            string message = "\n"+actualAssistant.name+" will now prepare the delivery";
             // asynch
-            Console.WriteLine("Opening of the order");
             await Task.Delay(ms);
-            Console.WriteLine("Message sending");
+            Console.WriteLine("\nAssistant ("+actualAssistant.name+") send a message to Chef");
+            await Task.Delay(ms);
+            Console.WriteLine("Message sending...");
             await Task.Delay(ms);
             
             //message for the Chef
-            Console.WriteLine("\nMessage from assistant to Chef :\nOrder n°" + myOrder.orderID +
-                              "\n\nItem present in the list :");
+            Console.WriteLine("\nMessage Received from assistant to Chef :\nOrder n°" + myOrder.orderID +
+                              "\n\nPizza present in the list :");
             for (int i = 0; i < myOrder.PizzaOList.Count; i++)
             {
-               Console.WriteLine("Item n°"+ (i+1) +" "+myOrder.PizzaOList[i].orderItemName +" "+ myOrder.PizzaOList[i].size); 
+               Console.WriteLine("Pizza n°"+ (i+1) +" "+myOrder.PizzaOList[i].orderItemName +" "+ myOrder.PizzaOList[i].size); 
             }
             Console.WriteLine(message);
             return message;
         }
         else
         {
-            string message = "\nmessage not sent";
+            string message = "\nMessage not sent";
             Console.WriteLine("\nOpening of the order");
             await Task.Delay(ms);
             Console.WriteLine(message);
@@ -84,20 +87,20 @@ public class Assistant : Person
         }
     }
 
-    public async Task<string> preparationOrderDelivery(Order myOrder)
+    public async Task<string> preparationOrderDelivery(Order myOrder, Delivery myDelivery, Assistant actualAssistant)
     {
         int ms = 2000;
         if (myOrder.inPreparation)
         {
-            string message = "\nDetails and Customer Address sent";
-            Console.WriteLine("\nOpening of the order");
+            string message = "\n"+myDelivery.name+" will take the Order, and wait the Chef to finish the order";
             await Task.Delay(ms);
-            Console.WriteLine("\nMessage is sending");
+            Console.WriteLine("\nDetails and Customer Address will be sent to "+myDelivery.name);
             await Task.Delay(ms);
-
+            Console.WriteLine("Message sending...");
+            await Task.Delay(ms);
             Thread.Sleep(ms);
 
-            Console.WriteLine("\nMessage to Delivery : \nOrder n°"+myOrder.orderID+"\nInvoice : " + myOrder.orderInvoice +
+            Console.WriteLine("\nMessage Received from Assistant ("+actualAssistant.name+") for the Delivery : \nOrder n°"+myOrder.orderID+"\nInvoice : " + myOrder.orderInvoice +
                               " euros & Delivery Address : "+myOrder.customerAddress +"\n");
             for (int i = 0; i < myOrder.PizzaOList.Count; i++)
             {
@@ -142,10 +145,6 @@ public class Assistant : Person
             {
                 Console.WriteLine("\nOrder closed");
             }
-            else if (myOrder.lostOrder)
-            {
-                Console.WriteLine("\nOrder lost");
-            }
         }
 
     public int moneyCash(System mySystem, Order myOrder)
@@ -166,36 +165,5 @@ public class Assistant : Person
     {
         myOrder.inPreparation = true;
         return myOrder.inPreparation;
-    }
-
-    public Boolean orderLost(Order myOrder)
-    {
-        myOrder.lostOrder = true;
-        return myOrder.lostOrder;
-    }
-
-    public int orderCashed(Order myOrder, Assistant myAssistant)
-    {
-        myAssistant.moneyEarned += myOrder.orderInvoice;
-        Console.WriteLine("Assistant : " + myAssistant.name + "cashed " + myOrder.orderInvoice + " euros" );
-        Console.WriteLine("Assistant : " + myAssistant.name + " has cashed " + myAssistant.moneyEarned + " euros" );
-        return myAssistant.moneyEarned;
-    }
-
-    public int orderLost(Order myOrder, Assistant myAssistant)
-    {
-        myAssistant.moneyEarned -= myOrder.orderInvoice;
-        Console.WriteLine("Assistant : " + myAssistant.name + "has lost " + myOrder.orderInvoice + " euros" );
-        Console.WriteLine("Assistant : " + myAssistant.name + "has lost in total " + myAssistant.moneyEarned + " euros" );
-        return myAssistant.moneyEarned;
-    }
-
-    public int updatePizzeriaAccount(System mySystem, Assistant myAssistant)
-    {
-        mySystem.systemCashRegister += myAssistant.moneyEarned;
-        Console.WriteLine("box : " + mySystem.systemCashRegister);
-        return mySystem.systemCashRegister;
-    }  
-        
-    
+    } 
 }
