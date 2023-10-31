@@ -32,7 +32,7 @@ public class CircularQueue<T>
         }
 
         T item = items[currentIndex];
-        currentIndex = (currentIndex + 1) % items.Count; // Circular increment
+        currentIndex = (currentIndex + 1) % items.Count;
 
         return item;
     }
