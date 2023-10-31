@@ -234,7 +234,7 @@ namespace Project
                             int local = 0;
                             while (local<customerList.Count)
                             {
-                                // browse a list
+                                
                                 if (number == customerList[local].phoneNumber)
                                 {
                                     Console.WriteLine("\nWe found you !");
@@ -262,6 +262,7 @@ namespace Project
                             choice = Console.ReadLine();
                             Int32.TryParse(choice, out nbDrink);
                         } while (nbDrink > 10 || nbDrink < 0);
+                        
                         
                         // create the new order
                         Order newOrder = new Order(orderid, 0, DateTime.Now, "3 rue des Potiers", "Cissé", PizzaOList,
@@ -350,7 +351,7 @@ namespace Project
                         Console.WriteLine("\n---------------------------------------------");
 
                         newOrder.customerAddress = customerList[addCustomerInList].address;
-                        
+                        newOrder.customerCity = customerList[addCustomerInList].customerCity;
                         
                         Console.WriteLine("\nList of items ordered :");
                         myPizzeria.pizzaList(newOrder.PizzaOList);
@@ -389,6 +390,9 @@ namespace Project
                         await actualDelivery.deliveryIsDone(newOrder);
                         Console.WriteLine("\n---------------------------------------------");
 
+                        newOrder.inPreparation = false;
+                        newOrder.inDelivery = false;
+                        
                         actualDelivery.moneyOrder = actualDelivery.getPayment(newOrder, actualDelivery);
 
                         customerList[addCustomerInList].newTotalAmount(newOrder.orderInvoice);
@@ -490,7 +494,7 @@ namespace Project
                                     assistant1.orderStatus(orderList[x]);
                                     break;
                                 case 2 :
-                                    Console.WriteLine(" The price of an order according to its number :   ");
+                                    Console.WriteLine("\nThe price of an order according to its number :   ");
                                     Console.WriteLine("Number of the order : ");
 
                                     do
@@ -504,11 +508,11 @@ namespace Project
                                     {
                                         z++;
                                     }
-                                    Console.WriteLine("Price of the order "+ number + " is " + orderList[z].orderInvoice + " euros");
+                                    Console.WriteLine("\nPrice of the order "+ number + " is " + orderList[z].orderInvoice + " euros");
                                     break;
                                 
                                 case 3:
-                                    Console.WriteLine("A complete order by its number :   ");
+                                    Console.WriteLine("\nA complete order by its number :   ");
                                     Console.WriteLine("Number of order : ");
                                     do
                                     {

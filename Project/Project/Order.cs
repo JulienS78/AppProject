@@ -39,18 +39,14 @@ public class Order
     }
     
     //increment number of order
-    public int incrementOrderID()
-    {
-        orderID += 1;
-        return orderID;
-    }
+
 
     public void displayOrder()
     {
-        Console.WriteLine("Order n°" + incrementOrderID() +" :");
+        Console.WriteLine("\nOrder n°" + orderID +" :");
         Console.WriteLine(" Order price : " + orderInvoice + " euros");
         Console.WriteLine(" Order date and time : " + orderDateTime);
-        Console.WriteLine(" Order address : " + customerAddress +" "+ customerCity);
+        Console.WriteLine(" Order address : " + customerAddress +", "+ customerCity);
 
         for (int i = 0; i < PizzaOList.Count; i++)
         {
